@@ -12,9 +12,9 @@ const Header = () => {
 
     return (
 		<header>
-			<Navbar collapseOnSelect className="p-0" expand="lg">
+			<Navbar className="p-0" expand="lg"> {}
 				<Container className="p-0">
-					<Navbar collapseOnSelect expand="lg" dark>
+					<Navbar expand="lg" dark> {}
 						<NavbarBrand tag={RRNavLink} to="/">
 							История и культура
 						</NavbarBrand>
@@ -35,4 +35,4 @@ const Header = () => {
     );
 };
 
-export default Header
+export default Header;

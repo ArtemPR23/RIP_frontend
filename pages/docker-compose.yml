@@ -15,6 +15,7 @@ services:
       - pgdb
       - migration
       - minio
+      - pgadmin
 
   migration:
     build: ./backend
