@@ -125,18 +125,18 @@ def add_cultural_artifacts():
     for artifact_data in cultural_artifacts:
         CulturalArtifact.objects.create(**artifact_data)
 
-    # Загрузка изображений в MinIO
+    # Загрузка изображений в MinIO (если нужно)
     try:
         client = Minio("minio:9000", "minio", "minio123", secure=False)
         # Загружаем изображения для ваших артефактов
         image_files = [
             "metro2033", "got", "it", 
-            "mrbeast", "comedyclub", "office",
+            "mrbeast", "comedyclub", "office"
         ]
         
         for image_file in image_files:
             try:
-                client.fput_object('images',f'{image_file}.png', f"app/static/images/{image_file}.png")
+                client.fput_object('images', f'{image_file}.png', f"app/static/images/{image_file}.png")
                 client.fput_object('images', f'{image_file}.mp4', f"app/static/video/{image_file}.mp4")
                 print(f"Изображение {image_file} загружено в MinIO")
             except Exception as e:

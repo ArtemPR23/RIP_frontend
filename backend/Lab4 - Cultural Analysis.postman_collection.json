@@ -1,0 +1,129 @@
+{
+	"info": {
+		"_postman_id": "7b2d03e7-c658-4005-9343-3e71447208e6",
+		"name": "Lab4 - Cultural Analysis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49849210",
+		"_collection_link": "https://den11042001a-6611969.postman.co/workspace/Denis-S's-Workspace~d57e18e7-de9c-4d17-8f84-d721e43bafd7/collection/49849210-7b2d03e7-c658-4005-9343-3e71447208e6?action=share&source=collection_link&creator=49849210"
+	},
+	"item": [
+		{
+			"name": "Запросы анализа",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "session=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYzMTQxNTE2LCJpYXQiOjE3NjMwNTUxMTYsInVzZXJfaWQiOjF9.EFnzHYChAwnrJHYEzqYkvGkYocUYYzowOPJ5dwqWfK8;",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/analysis_requests/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"analysis_requests",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Деавторизация Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "session=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYzMTQwNDQwLCJpYXQiOjE3NjMwNTQwNDAsInVzZXJfaWQiOjF9.QyZ7n1uWQ86zpjvfL4GXNbm1zy5UlNntcfyjgWiRS-c",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/users/logout/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"logout",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Аутентификация Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"root\",\r\n    \"password\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/users/login/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Завершение/Отклонение запроса анализа Copy",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"COMPLETED\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/analysis_requests/11/update_status_admin/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"analysis_requests",
+						"11",
+						"update_status_admin",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

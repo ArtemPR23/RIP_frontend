@@ -15,6 +15,7 @@ services:
       - pgdb
       - migration
       - minio
+      - redis
 
   migration:
     build: .
@@ -95,6 +96,20 @@ services:
       - "9001:9001"
     depends_on:
       - minio
+
+  redis:
+    image: redis:latest
+    container_name:   redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./:/usr/src/app/dаta:/root/redis
+      - ./:/usr/src/app/redis.conf:/usr/local/etc/redis/redis.conf
+    environment:
+      - REDIS_PASSWORD=my-password
+      - REDIS_PORT=6379
+      - REDIS_DATABASES=16
 
 volumes:
   pgdbdata: null

@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import *
+from django.core.exceptions import ValidationError
 
 class CulturalArtifactSerializer(serializers.ModelSerializer):
     image = serializers.SerializerMethodField()
@@ -133,3 +134,53 @@ class UserRegisterSerializer(serializers.ModelSerializer):
 class UserLoginSerializer(serializers.Serializer):
     username = serializers.CharField(required=True)
     password = serializers.CharField(required=True)
+
+
+class CurrentUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'email', 'username', 'is_staff', 'is_active')
+
+
+
+from rest_framework import serializers
+from .models import AnalysisArtifact, AnalysisRequest
+
+class UpdateArtifactScoreSerializer(serializers.Serializer):
+    """Сериализатор для обновления расчетного показателя"""
+    calculated_score = serializers.DecimalField(
+        max_digits=10, 
+        decimal_places=2,
+        required=True
+    )
+    weighted_influence = serializers.DecimalField(
+        max_digits=10, 
+        decimal_places=2,
+        required=False
+    )
+    
+    def validate_calculated_score(self, value):
+        """Валидация расчетного показателя"""
+        if value < 0:
+            raise serializers.ValidationError("Score cannot be negative")
+        return value
+
+class AnalysisArtifactSerializer(serializers.ModelSerializer):
+    """Сериализатор для артефактов анализа"""
+    cultural_artifact_title = serializers.CharField(
+        source='cultural_artifact.title',
+        read_only=True
+    )
+    
+    class Meta:
+        model = AnalysisArtifact
+        fields = [
+            'id',
+            'cultural_artifact',
+            'cultural_artifact_title',
+            'weight',
+            'analysis_depth',
+            'calculated_score',
+            'weighted_influence'
+        ]
+        read_only_fields = ['weight', 'analysis_depth', 'weighted_influence']

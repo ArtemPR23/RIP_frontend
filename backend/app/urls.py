@@ -20,6 +20,7 @@ urlpatterns = [
     path('api/analysis_requests/<int:analysis_request_id>/delete/', delete_analysis_request),  # DELETE
 
     # Набор методов для м-м
+    # path('api/analysis_requests/<int:analysis_requests>/update_artifact/<int:artifact_id>/', get_sample_mission),  # GET
     path('api/analysis_requests/<int:analysis_request_id>/update_artifact/<int:artifact_id>/', update_artifact_in_analysis),  # PUT
     path('api/analysis_requests/<int:analysis_request_id>/delete_artifact/<int:artifact_id>/', delete_artifact_from_analysis),  # DELETE
 
@@ -27,8 +28,25 @@ urlpatterns = [
     path('api/users/register/', register), # POST
     path('api/users/login/', login), # POST
     path('api/users/logout/', logout), # POST
+    path('api/users/current/', get_current_user), # GET
     path('api/users/<int:user_id>/update/', update_user), # PUT
 
-    path('api/get_cart_icon/', get_cart_icon), # GET
+    # Callback эндпоинты для Go-сервиса
+    path('api/artifacts/<int:calculation_id>/update-score/', 
+         update_artifact_score, 
+         name='update-artifact-score'),
     
+    path('api/artifacts/<int:calculation_id>/artifacts/<int:artifact_id>/update-score/', 
+         update_artifact_score, 
+         name='update-specific-artifact-score'),
+    
+    path('api/artifacts/analysis/<int:calculation_id>/update-total-score/', 
+         update_analysis_total_score, 
+         name='update-analysis-total-score'),
+    
+    path('api/artifacts/<int:calculation_id>/artifacts/<int:artifact_id>/status/', 
+         get_artifact_status, 
+         name='get-artifact-status'),
+    
+ 
 ]
