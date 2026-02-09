@@ -47,7 +47,8 @@ def add_cultural_artifacts():
             "media_mentions": 95,
             "social_media_score": 85,
             "adaptation_count": 3,
-            "image": "http://localhost:9000/images/metro2033.png"
+            "image": "http://localhost:9000/images/metro2033.png",
+            "video": "http://localhost:9000/images/metro2033.mp4",
         },
         {
             "title": "Игра престолов", 
@@ -60,7 +61,8 @@ def add_cultural_artifacts():
             "media_mentions": 450,
             "social_media_score": 380,
             "adaptation_count": 1,
-            "image": "http://localhost:9000/images/got.png"
+            "image": "http://localhost:9000/images/got.png",
+            "video": "http://localhost:9000/images/got.mp4",
         },
         {
             "title": "Оно",
@@ -73,7 +75,8 @@ def add_cultural_artifacts():
             "media_mentions": 320,
             "social_media_score": 410,
             "adaptation_count": 2,
-            "image": "http://localhost:9000/images/it.png"
+            "image": "http://localhost:9000/images/it.png",
+            "video": "http://localhost:9000/images/it.mp4",
         },
         {
             "title": "MrBeast",
@@ -86,7 +89,8 @@ def add_cultural_artifacts():
             "media_mentions": 280,
             "social_media_score": 890,
             "adaptation_count": 0,
-            "image": "http://localhost:9000/images/mrbeast.png"
+            "image": "http://localhost:9000/images/mrbeast.png",
+            "video": "http://localhost:9000/images/mrbeast.mp4",
         },
         {
             "title": "Comedy Club",
@@ -99,7 +103,8 @@ def add_cultural_artifacts():
             "media_mentions": 310,
             "social_media_score": 290,
             "adaptation_count": 15,
-            "image": "http://localhost:9000/images/comedyclub.png"
+            "image": "http://localhost:9000/images/comedyclub.png",
+            "video": "http://localhost:9000/images/comedyclub.mp4",
         },
         {
             "title": "Офис (The Office)",
@@ -112,7 +117,8 @@ def add_cultural_artifacts():
             "media_mentions": 190,
             "social_media_score": 670,
             "adaptation_count": 8,
-            "image": "http://localhost:9000/images/office.png"
+            "image": "http://localhost:9000/images/office.png",
+            "video": "http://localhost:9000/images/office.mp4",
         }
     ]
 
@@ -124,13 +130,14 @@ def add_cultural_artifacts():
         client = Minio("minio:9000", "minio", "minio123", secure=False)
         # Загружаем изображения для ваших артефактов
         image_files = [
-            "metro2033.png", "got.png", "it.png", 
-            "mrbeast.png", "comedyclub.png", "office.png"
+            "metro2033", "got", "it", 
+            "mrbeast", "comedyclub", "office"
         ]
         
         for image_file in image_files:
             try:
-                client.fput_object('images', image_file, f"app/static/images/{image_file}")
+                client.fput_object('images', f'{image_file}.png', f"app/static/images/{image_file}.png")
+                client.fput_object('images', f'{image_file}.mp4', f"app/static/video/{image_file}.mp4")
                 print(f"Изображение {image_file} загружено в MinIO")
             except Exception as e:
                 print(f"Ошибка при загрузке {image_file}: {e}")
