@@ -29,7 +29,7 @@
       "src/*": ["./*"],
       "components/*": ["components/*"],
       "pages/*": ["pages/*"],
-      "assets/*": ["assets/*"],
+      "store/*": ["store/*"],
       "modules/*": ["modules/*"],
       "utils/*": ["utils/*"]
     }

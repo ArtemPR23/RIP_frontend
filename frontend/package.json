@@ -1,5 +1,5 @@
 {
-  "name": "lab5",
+  "name": "lab6",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,14 +9,24 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate-api": "node scripts/generate-api.mjs"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.2.5",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/react-table": "^7.7.20",
+    "axios": "^1.7.4",
     "bootstrap": "^5.3.3",
+    "i": "^0.3.7",
+    "npm": "^10.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-redux": "^9.1.2",
     "react-router-dom": "^6.23.1",
+    "react-table": "^7.8.0",
     "reactstrap": "^9.2.2",
+    "redux-persist": "^6.0.0",
     "vite-tsconfig-paths": "^4.3.2"
   },
   "devDependencies": {
@@ -30,7 +40,8 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
     "gh-pages": "^6.1.1",
+    "swagger-typescript-api": "^13.2.0",
     "typescript": "^5.2.2",
-    "vite": "^7.3.1"
+    "vite": "^5.4.21"
   }
 }

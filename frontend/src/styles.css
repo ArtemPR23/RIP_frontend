@@ -1,5 +1,5 @@
 :root {
-    --root-bg: #fff;
+     --root-bg: #fff;
     --text-color: #000;
     --primary-color: #447BBA;
     --primary-color__hover: hsl(from var(--primary-color) h s calc(l - 10));
@@ -102,6 +102,20 @@ body {
     border-color: var(--card-border-color) !important;
 }
 
+.bin {
+    position: relative;
+}
+@media screen and (max-width: 769px) {
+    .bin {
+        margin-top: 25px;
+    }
+}
+.badge.bg-secondary {
+    top: -10px !important;
+    right: -10px !important;
+    position: absolute !important;
+    background: var(--primary-color) !important;
+}
 .breadcrumb-item::before{
     color: #0d6eFd !important;
 }
