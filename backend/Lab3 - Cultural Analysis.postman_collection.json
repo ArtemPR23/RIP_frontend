@@ -1,0 +1,654 @@
+{
+	"info": {
+		"_postman_id": "7def16a1-de70-4ac8-85aa-90c68eba9b47",
+		"name": "Lab3 - Cultural Analysis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49849210",
+		"_collection_link": "https://den11042001a-6611969.postman.co/workspace/Denis-S's-Workspace~d57e18e7-de9c-4d17-8f84-d721e43bafd7/collection/49849210-7def16a1-de70-4ac8-85aa-90c68eba9b47?action=share&source=collection_link&creator=49849210"
+	},
+	"item": [
+		{
+			"name": "Культурные артефакты",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI5NDQyOTgwLCJpYXQiOjE3MjkzNTY1ODAsInVzZXJfaWQiOjF9.TJk9mOWV4FTWqBFa91g50x3hFX3C82i6UWHyEqN3fxI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/artifacts/?title=Метро",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"artifacts",
+						""
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Метро"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Иконки корзины",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI5NDQyOTgwLCJpYXQiOjE3MjkzNTY1ODAsInVzZXJfaWQiOjF9.TJk9mOWV4FTWqBFa91g50x3hFX3C82i6UWHyEqN3fxI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/get_cart_icon/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"get_cart_icon",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Культурный артефакт",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/artifacts/1/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"artifacts",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Обновление культурного артефакта",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"Обновленное описание культурного артефакта\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/artifacts/1/update/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"artifacts",
+						"1",
+						"update",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создание культурного артефакта",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "title",
+							"type": "text"
+						},
+						{
+							"key": "author",
+							"value": "author",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "description",
+							"type": "text"
+						},
+						{
+							"key": "publication_year",
+							"value": "2000",
+							"type": "text"
+						},
+						{
+							"key": "genre",
+							"value": "POST_APOCALYPTIC",
+							"type": "text"
+						},
+						{
+							"key": "base_influence_score",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "citation_count",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "media_mentions",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "social_media_score",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "adaptation_count",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "True",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/artifacts/create/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"artifacts",
+						"create",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удаление культурного артефакта",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/artifacts/1/delete/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"artifacts",
+						"1",
+						"delete",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Добавление артефакта в запрос анализа",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI5NDQxMzk0LCJpYXQiOjE3MjkzNTQ5OTQsInVzZXJfaWQiOjF9.HhYXiblh2Q6usXvkhuJ0wcxm6tndKF4UUpe3ukmKewI",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/artifacts/6/add_to_analysis/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"artifacts",
+						"6",
+						"add_to_analysis",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Обновление изображения артефакта",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/Ярослав/Desktop/sports-car-futuristic-mountain-sunset-scenery-digital-art-2k-wallpaper-uhdpaper.com-537@0@i.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/artifacts/1/update_image/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"artifacts",
+						"1",
+						"update_image",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Запросы анализа",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI5NDQzOTM4LCJpYXQiOjE3MjkzNTc1MzgsInVzZXJfaWQiOjF9.3n8y8kiYVra079CUQwT_gRMC5V5CvSRus2Ys5hD_x7s",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/analysis_requests/?status=IN_PROGRESS&date_formation_start=2024-09-13",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"analysis_requests",
+						""
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "IN_PROGRESS"
+						},
+						{
+							"key": "date_formation_start",
+							"value": "2024-09-13"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Запрос анализа",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/analysis_requests/6/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"analysis_requests",
+						"6",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Обновление запроса анализа",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"research_title\": \"Обновленное название исследования\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/analysis_requests/6/update/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"analysis_requests",
+						"6",
+						"update",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Обновление поля м-м (артефакт анализа)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"weight\": 0.75\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/analysis_requests/31/update_artifact/1/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"analysis_requests",
+						"31",
+						"update_artifact",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Формирование запроса анализа",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/analysis_requests/6/update_status_user/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"analysis_requests",
+						"6",
+						"update_status_user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Завершение/Отклонение запроса анализа",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"COMPLETED\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/analysis_requests/3/update_status_admin/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"analysis_requests",
+						"3",
+						"update_status_admin",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удаление запроса анализа",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/analysis_requests/1/delete/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"analysis_requests",
+						"1",
+						"delete",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удаление артефакта из запроса анализа",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/analysis_requests/31/delete_artifact/1/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"analysis_requests",
+						"31",
+						"delete_artifact",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Регистрация",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"user12\",\r\n    \"first_name\": \"first_name\",\r\n    \"last_name\": \"last_name\",\r\n    \"email\": \"user11@user.com\",\r\n    \"password\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/users/register/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Аутентификация",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"user\",\r\n    \"password\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/users/login/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Обновление пользователя",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"user13\",\r\n    \"first_name\": \"first_name\",\r\n    \"last_name\": \"last_name\",\r\n    \"email\": \"user11@user.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/users/22/update/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"22",
+						"update",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Деавторизация",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI5NDQzOTM4LCJpYXQiOjE3MjkzNTc1MzgsInVzZXJfaWQiOjF9.3n8y8kiYVra079CUQwT_gRMC5V5CvSRus2Ys5hD_x7s",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/users/logout/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"logout",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
